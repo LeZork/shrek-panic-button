@@ -1,0 +1,59 @@
+@import (less) "https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap";
+
+body {
+  background-color: #d0e7a8; /* Светло-зеленый фон */
+  font-family: 'Luckiest Guy', cursive; /* Шрифт в стиле Шрека */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  //background-image: url('shrek-background.jpg'); /* Подставьте путь к вашему изображению */
+  //background-size: cover; /* Заполнение всего фона */
+  //background-position: center; /* Центрирование изображения */
+}
+
+button {
+  background-color: #8fbc8f; /* Зеленый цвет кнопки */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s, 
+}
+
+h1 {
+    font-size: 48px;
+    color: #4b8e4b; /* Темно-зеленый цвет текста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
+  }
+
+button:hover {
+  background-color: #6b8e23; /* Темно-зеленый при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Увеличение тени при наведении */
+}
+
+button:active {
+  background-color: #556b2f; /* Еще более темный зеленый при нажатии */
+  transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
+}
+
+@media (max-width: 600px) {
+    button {
+      font-size: 20px; /* Уменьшение размера кнопки на мобильных устройствах */
+      padding: 15px 30px; /* Уменьшение отступов */
+    }
+    
+    h1 {
+      font-size: 36px; /* Уменьшение размера заголовка на мобильных устройствах */
+    }
+}
+  
+  

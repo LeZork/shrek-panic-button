@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shrek Panic Button</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, user-scalable=no">
+    <meta name="description" content="Shrek-themed Panic Button">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="index.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    class Button extends React.Component {
+      constructor(props){
+        super(props);
+        this.state = {
+          button_state: 'off'
+        }
+        window.addEventListener("mouseup", () => this.handleMouseUp());
+      }
+
+      handleMouseDown() {
+        document.title = "sooooomebody";
+        document.querySelector("audio").play();
+        this.setState({button_state: "on"})
+      }
+
+      handleMouseUp() {
+        document.title = "Shrek Panic Button";
+        document.querySelector("audio").pause();
+        document.querySelector("audio").currentTime = 0;
+        this.setState({button_state: "off"})
+      }
+
+      render(){
+        return <button onMouseDown={() => this.handleMouseDown()}
+                       onMouseUp={() => this.handleMouseUp()}
+                       onTouchStart={() => this.handleMouseDown()}
+                       onTouchEnd={() => this.handleMouseUp()}
+                       className={this.state.button_state}>Shrek Panic Button</button>
+      }
+    }
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+      }
+
+      render() {
+        return (
+          <div id="shrek-panic-button">
+            <Button />
+            <audio src="somebody-once-told-me.mp3" preload="auto">Пожалуйста, включите поддержку звука в вашем браузере</audio>
+          </div>
+        )
+      }
+    }
+
+    function Render(){
+      ReactDOM.render(<App />, document.querySelector("#root"))
+    }
+
+    Render()
+  </script>
+</html>
